@@ -1,3 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import "tailwindcss";
+@import 'tailwindcss';
+
+@plugin "daisyui" {
+  themes: night --default;
+}
+
+@font-face {
+  font-family: montserrat-alternates;
+  src: url('/assets/fonts/montserrat/MontserratAlternates-Medium.ttf') format('truetype');
+}
+
+@theme {
+  --font-montserrat-alternates: 'montserrat-alternates', sans-serif;
+}
+
+@theme {
+  /* 1. Definimos los movimientos premium */
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  /* 2. Creamos la utilidad personalizada */
+  --animate-premium-in: fade-in-up 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
